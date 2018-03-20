@@ -1,0 +1,17 @@
+{
+    "name": "ralla/grav-plugin-dotenv",
+    "type": "project",
+    "description": "DotEnv support for Grav",
+    "keywords": ["cms","flat-file cms","flat cms","flatfile cms","php","dotenv"],
+    "license": "MIT",
+    "require": {
+         "adbario/php-dot-notation": "^2.0",
+         "vlucas/phpdotenv": "^2.4"
+    },
+    "authors": [
+        {
+            "name": "Jakob Kruse",
+            "email": "jkonliner@gmail.com"
+        }
+    ]
+}
