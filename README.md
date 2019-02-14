@@ -1,4 +1,4 @@
-# Grav .ENV Plugin
+# Grav .env Plugin
 
 Simple [Grav](http://github.com/getgrav/grav) plugin that provides a simple way to load environment variables from .gravenv and override existing Grav configuration.
 
