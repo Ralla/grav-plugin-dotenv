@@ -6,3 +6,7 @@ author:
   name: Jakob Kruse
   email: jkonliner@gmail.com
   url: https://github.com/ralla
+homepage: https://github.com/ralla/grav-plugin-dotenv
+keywords: dotenv, env, environment
+bugs: https://github.com/ralla/grav-plugin-dotenv/issues
+license: MIT
