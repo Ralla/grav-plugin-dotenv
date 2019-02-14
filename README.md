@@ -1,6 +1,8 @@
 # Grav .ENV Plugin
 
-Simple [Grav](http://github.com/getgrav/grav) plugin that provides a simple way to load environment variables from .env to getenv(), $_ENV and $_SERVER.
+Simple [Grav](http://github.com/getgrav/grav) plugin that provides a simple way to load environment variables from .gravenv and override existing Grav configuration.
+
+Uses [adbario/php-dot-notation](https://github.com/adbario/php-dot-notation) and [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv).
 
 # Installation
 
