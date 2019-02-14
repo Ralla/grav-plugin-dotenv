@@ -26,17 +26,29 @@ class DotenvPlugin extends Plugin
         ];
     }
 
+    /**
+     * Initialize hook.
+     */
     public function onPluginsInitialized()
     {
         $this->dotenv = new Dotenv(GRAV_ROOT, '.gravenv');
 
         try {
             $this->init();
-        } catch (\Exception $e) {
-            $this->grav['debugger']->addMessage('DotEnv: ' . $e->getMessage());
+        } catch (\Exception $exception) {
+            $message = 'DotEnv: ' . $exception->getMessage();
+
+            $this->grav['debugger']->addMessage($message);
+
+            if ($this->isAdmin()) {
+                $this->grav['admin']->setMessage($message, 'warning');
+            }
         }
     }
 
+    /**
+     * Init all environment settings from .gravenv
+     */
     protected function init()
     {
         foreach ($this->dotenv->load() as $setting) {
@@ -48,13 +60,20 @@ class DotenvPlugin extends Plugin
         }
     }
 
+    /**
+     * Format setting from .gravenv
+     *
+     * @param  string   $setting
+     *
+     * @return array
+     */
     protected function getSetting($setting)
     {
         if (strpos($setting, '=') !== false) {
             list($name, $value) = array_map('trim', explode('=', $setting, 2));
         }
 
-        // Name is not dot notated, it has to be.
+        // Name is not dot notated, it should be.
         if (strpos($name, '.') === false) {
             return;
         }

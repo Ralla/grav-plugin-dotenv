@@ -1,8 +1,8 @@
 name: DotEnv
 version: 1.0.0
-description: Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically.
-icon: exclamation-circle
+description: Loads environment variables from .gravenv file.
+icon: empire
 author:
   name: Jakob Kruse
   email: jkonliner@gmail.com
-  url: http://zenbu.ai
+  url: https://github.com/ralla
