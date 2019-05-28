@@ -1,6 +1,8 @@
 <?php
 namespace Grav\Plugin;
 
+require __DIR__ . '/vendor/autoload.php';
+
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
 use Dotenv\Dotenv;
