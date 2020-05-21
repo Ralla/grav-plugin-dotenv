@@ -76,7 +76,7 @@ class DotenvPlugin extends Plugin
         }
 
         // Name is not dot notated, it should be.
-        if (strpos($name, '.') === false) {
+        if (isset($name) === false || strpos($name, '.') === false) {
             return;
         }
 
