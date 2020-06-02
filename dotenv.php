@@ -33,7 +33,8 @@ class DotenvPlugin extends Plugin
      */
     public function onPluginsInitialized()
     {
-        $this->dotenv = new Dotenv(GRAV_ROOT, '.gravenv');
+        $filename = $this->grav['config']->get('plugins.dotenv.filename');
+        $this->dotenv = new Dotenv(GRAV_ROOT, $filename ?? '.gravenv');
 
         try {
             $this->init();

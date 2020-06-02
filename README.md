@@ -46,3 +46,10 @@ system.cache.enabled=false
 system.twig.cache=false
 system.debugger.enabled=true
 ```
+
+## Using a Different Env File
+
+If you would prefer to use a file other than `.gravenv` (eg. `.env`) you can do the following:
+
+1. Copy `user/plugins/dotenv/dotenv.yaml` to `user/config/plugins/dotenv.yaml`
+1. Edit `user/config/plugins/dotenv.yaml` and change the `filename` option.
