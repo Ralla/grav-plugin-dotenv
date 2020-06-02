@@ -42,6 +42,7 @@ class DotenvPlugin extends Plugin
             $message = 'DotEnv: ' . $exception->getMessage();
 
             $this->grav['debugger']->addMessage($message);
+            $this->grav['log']->warning($message);
 
             if ($this->isAdmin()) {
                 $this->grav['admin']->setMessage($message, 'warning');
@@ -54,7 +55,8 @@ class DotenvPlugin extends Plugin
      */
     protected function init()
     {
-        foreach ($this->dotenv->load() as $setting) {
+        $this->dotenv->load();
+        foreach ($this->dotenv->getEnvironmentVariableNames() as $setting) {
             $settingData = $this->getSetting($setting);
 
             $this->grav['config']->join($settingData['grav_pointer'], [
@@ -70,12 +72,8 @@ class DotenvPlugin extends Plugin
      *
      * @return array
      */
-    protected function getSetting($setting)
+    protected function getSetting($name)
     {
-        if (strpos($setting, '=') !== false) {
-            list($name, $value) = array_map('trim', explode('=', $setting, 2));
-        }
-
         // Name is not dot notated, it should be.
         if (strpos($name, '.') === false) {
             return;
@@ -87,7 +85,7 @@ class DotenvPlugin extends Plugin
             'grav_pointer'  => implode('.', array_slice($parts, 0, -1)),
             'env_name'      => implode('.', $parts),
             'key'           => end($parts),
-            'value'         => $value,
+            'value'         => getenv($name),
         ];
     }
 }
