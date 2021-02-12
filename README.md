@@ -1,3 +1,7 @@
+# PROJECT IS ABANDONED
+Grav core now supports .env
+https://learn.getgrav.org/17/advanced/multisite-setup#server-based-configuration-overrides
+
 # Grav .env Plugin
 
 Simple [Grav](http://github.com/getgrav/grav) plugin that provides a simple way to load environment variables from .gravenv and override existing Grav configuration.
